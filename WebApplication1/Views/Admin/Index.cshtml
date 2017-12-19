@@ -1,0 +1,43 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Students</h2>
+
+<a class="btn btn-success" href="AddStudent">Add student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <th scope="row">@student.Id</th>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>
+                    <a href="Edit/@student.Id" class="btn btn-outline-warning">Edit</a>
+                </td>
+                <td>
+                    <form action="/Admin/DeleteStudent" method="post">
+                        <input type="hidden" value="@student.Id" />
+                        <input class="btn btn-outline-warning" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+        }        
+    </tbody>
+</table>
+
