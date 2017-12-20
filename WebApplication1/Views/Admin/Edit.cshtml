@@ -7,16 +7,16 @@
 
 <h2>Edit student</h2>
 
-<form action="/Admin/EditStudent" method="post">
+<form action="/Admin/Edit" method="post">
     <div class="form-group">
         <label for="InputFirstName">First name</label>
-        <input type="text" class="form-control" id="InputFirstName" placeholder="First name" value="@Model.FirstName">
+        <input type="text" class="form-control" id="InputFirstName" placeholder="First name" value="@Model.FirstName" name="FirstName">
     </div>
     <div class="form-group">
         <label for="InputLastName">Last name</label>
-        <input type="text" class="form-control" id="InputLastName" placeholder="Last name" value="@Model.LastName">
+        <input type="text" class="form-control" id="InputLastName" placeholder="Last name" value="@Model.LastName" name="LastName">
     </div>
-
-    <button type="submit" class="btn btn-primary">Create</button>
+    @Html.HiddenFor(s => s.Id)
+    <button type="submit" class="btn btn-primary">Save changes</button>
 </form>
 

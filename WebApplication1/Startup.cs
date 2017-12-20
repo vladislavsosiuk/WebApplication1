@@ -34,7 +34,7 @@ namespace WebApplication1
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "vladeslav admin";
+                user.UserName = "vladeslavAdmin";
                 user.Email = "vladeslav0086@gmail.com";
 
                 string userPWD = "Qwerty77";

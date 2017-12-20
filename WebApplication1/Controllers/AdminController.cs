@@ -20,7 +20,8 @@ namespace WebApplication1.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            var students = studentManager.GetStudents();
+            return View(students);
         }
         public ActionResult AddStudent()
         {
@@ -31,6 +32,7 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                studentManager.AddStudent(student);
                 return RedirectToAction("Index");
             }
             return View(student);

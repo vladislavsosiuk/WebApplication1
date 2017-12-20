@@ -6,7 +6,7 @@ namespace DataLayer
     using System.Linq;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public partial class StudentsContext : IdentityDbContext
+    public partial class StudentsContext : DbContext
     {
         public StudentsContext()
             : base("name=StudentsContext")

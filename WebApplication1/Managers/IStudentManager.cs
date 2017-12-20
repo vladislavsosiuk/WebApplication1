@@ -12,5 +12,7 @@ namespace WebApplication1.Managers
         Student GetStudent(int id);
         void UpdateStudent(Student student);
         void DeleteStudent(int id);
+        IEnumerable<Student> GetStudents();
+        void AddStudent(Student student);
     }
 }
