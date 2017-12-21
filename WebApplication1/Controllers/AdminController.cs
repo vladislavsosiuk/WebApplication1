@@ -20,8 +20,7 @@ namespace WebApplication1.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            var students = studentManager.GetStudents();
-            return View(students);
+            return View();
         }
         public ActionResult AddStudent()
         {
@@ -60,7 +59,12 @@ namespace WebApplication1.Controllers
         public ActionResult Delete(int id)
         {
             studentManager.DeleteStudent(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Students");
+        }
+        public PartialViewResult Students()
+        {
+            var students = studentManager.GetStudents();
+            return PartialView(students);
         }
     }
 }
