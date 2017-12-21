@@ -30,3 +30,9 @@
         }
     </tbody>
 </table>
+<div>
+    @for(int i = 1; i <= ViewBag.PagesCount; i++)
+    {
+        @Ajax.ActionLink(i.ToString(), "Student", new { pageNumber = i},new AjaxOptions { UpdateTargetId="students"}, new { @class="btn btn-danger"})
+    }
+</div>

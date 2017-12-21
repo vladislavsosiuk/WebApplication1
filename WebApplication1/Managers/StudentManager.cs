@@ -67,5 +67,16 @@ namespace WebApplication1.Managers
             });
             context.SaveChanges();
         }
+
+        public IEnumerable<Student> GetStudents(int skip, int take)
+        {
+            var students = context.students.OrderBy(o=>o.StudentId).Skip(skip).Take(take).Select(s => new Student
+            {
+                Id = s.StudentId,
+                FirstName = s.StudentFirstName,
+                LastName = s.StudentLastName,
+            }).ToList();
+            return students ?? new List<Student>();
+        }
     }
 }

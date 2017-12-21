@@ -12,6 +12,7 @@ namespace WebApplication1.Controllers
     public class AdminController : Controller
     {
         IStudentManager studentManager;
+        int studentsOnPage = 3;
 
         public AdminController()
         {
@@ -61,9 +62,9 @@ namespace WebApplication1.Controllers
             studentManager.DeleteStudent(id);
             return RedirectToAction("Students");
         }
-        public PartialViewResult Students()
+        public PartialViewResult Students(int pageNumber = 0)
         {
-            var students = studentManager.GetStudents();
+            var students = studentManager.GetStudents((pageNumber - 1) * studentsOnPage, studentsOnPage);
             return PartialView(students);
         }
     }
